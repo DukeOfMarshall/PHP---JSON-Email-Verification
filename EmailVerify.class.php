@@ -1,4 +1,10 @@
 <?php
+##############################################################################################################
+#
+# Author: Todd D. Webb
+# Contact: DukeOfMarshall@gmail.com
+#
+##############################################################################################################
 
 # What to do if the class is being called directly and not being included in a script via PHP
 # This allows the class/script to be called via other methods like JavaScript
@@ -40,22 +46,27 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])){
 
 class EmailVerify {
 	public function __construct(){
-		
 	}
 	
+	# Verify the DNS records according to the domain name given in the email address
 	public function verify_domain($address_to_verify){
-		// an optional sender  
-		$record = 'MX';
+		$record = 'MX'; # <-- Can be changed to check for other records like A records or CNAME records as well
 		list($user, $domain) = explode('@', $address_to_verify);
 		return checkdnsrr($domain, $record);
 	}
 	
+	# Verify that the email address is formatted as an email address should be
 	public function verify_formatting($address_to_verify){
+		
+		# Check to make sure the @ symbol is included
 		if(strstr($address_to_verify, "@") == FALSE){
 			return false;
 		}else{
+			
+			# Bust up the address so that we have the name and the domain name
 			list($user, $domain) = explode('@', $address_to_verify);
 			
+			# Verify the domain name has a period like all good domain names should
 			if(strstr($domain, '.') == FALSE){
 				return false;
 			}else{
