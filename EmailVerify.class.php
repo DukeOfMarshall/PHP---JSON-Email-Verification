@@ -1,8 +1,18 @@
 <?php
 ##############################################################################################################
 #
+# Basic email address verification class
+# This class can determine if an email address is correctly formatted and if the domain for the email address
+#	exists, but cannot determine if the actual email address itself exists
+#
 # Author: Todd D. Webb
 # Contact: DukeOfMarshall@gmail.com
+#
+# Sites
+#	http://www.dukeofmarshall.com
+#	http://blog.dukeofmarshall.com
+#	http://www.techwerks.tv
+#	http://www.soundbytes.biz
 #
 ##############################################################################################################
 
@@ -12,30 +22,30 @@ if(basename(__FILE__) == basename($_SERVER["SCRIPT_FILENAME"])){
 	$return_array = array();
 	
 	if($_GET['address_to_verify'] == '' || !isset($_GET['address_to_verify'])){
-		$return_array['error'] 			= 1;
-		$return_array['message'] 		= 'No email address was submitted for verification';
+		$return_array['error'] 				= 1;
+		$return_array['message'] 			= 'No email address was submitted for verification';
 		$return_array['domain_verified'] 	= 0;
 		$return_array['format_verified'] 	= 0;
 	}else{
 		$verify = new EmailVerify();
 		
 		if($verify->verify_formatting($_GET['address_to_verify'])){
-			$return_array['format_verified'] = 1;
+			$return_array['format_verified'] 	= 1;
 			
 			if($verify->verify_domain($_GET['address_to_verify'])){
-				$return_array['error'] 			= 0;
+				$return_array['error'] 				= 0;
 				$return_array['domain_verified'] 	= 1;
-				$return_array['message'] 		= 'Formatting and domain have been verified';
+				$return_array['message'] 			= 'Formatting and domain have been verified';
 			}else{
-				$return_array['error'] 			= 1;
+				$return_array['error'] 				= 1;
 				$return_array['domain_verified'] 	= 0;
-				$return_array['message'] 		= 'Formatting was verified, but verification of the domain has failed';
+				$return_array['message'] 			= 'Formatting was verified, but verification of the domain has failed';
 			}
 		}else{
-			$return_array['error'] 			= 1;
+			$return_array['error'] 				= 1;
 			$return_array['domain_verified'] 	= 0;
 			$return_array['format_verified'] 	= 0;
-			$return_array['message'] 		= 'Email was not formatted correctly';
+			$return_array['message'] 			= 'Email was not formatted correctly';
 		}
 	}
 	
