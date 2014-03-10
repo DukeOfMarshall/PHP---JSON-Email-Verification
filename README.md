@@ -1,7 +1,18 @@
 PHP---JSON-Email-Verification
 =============================
 
-This is a short, simple, and straight forward script to perform some basic verification on a submitted email address. Can be used either as a PHP include/require or as a straight up URL with one GET variable so that one can use it with just about any other language such as JavaScript, etc
+This is a short, simple, and straight forward script to perform some basic verification on a submitted email address. Can be used either as a PHP include/require or as a straight up URL with one GET variable so that one can use it with just about any other language such as JavaScript, etc. When calling through a URL with another language such as JavaScript, the output is returned as a JSON string.
+
+```TEXT
+{"format_verified":1,"error":0,"domain_verified":1,"message":"Formatting and domain have been verified"}
+```
+
+```TEXT
+["format_verified"] => 1
+["error"] => 0
+["domain_verified"] => 1
+["message"] => "Formatting and domain have been verified"
+```
 
 This has only been developed and tested on a CentOS Apache setup with PHP 5.4.21 .
 
