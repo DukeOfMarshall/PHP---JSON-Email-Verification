@@ -8,10 +8,10 @@ This is a short, simple, and straight forward script to perform some basic verif
 ```
 
 ```TEXT
-["format_verified"] => 1
-["error"] => 0
-["domain_verified"] => 1
-["message"] => "Formatting and domain have been verified"
+["format_verified"] => 1 (BOOL)
+["error"] => 0 (BOOL)
+["domain_verified"] => 1 (BOOL)
+["message"] => "Formatting and domain have been verified" (STRING)
 ```
 
 This has only been developed and tested on a CentOS Apache setup with PHP 5.4.21 .
