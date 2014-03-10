@@ -26,3 +26,17 @@ This has only been developed and tested on a CentOS Apache setup with PHP 5.4.21
 
 </body>
 </html>
+
+JavaScript Exmaple:
+===================
+```JAVASCRIPT
+$(function(){
+	$("#js_verify").click(function(){
+		$.getJSON("EmailVerify.class.php", { "address_to_verify" : $("#email").val() }, function(data){
+			alert(data.message);
+			return false;
+		});
+		return false;
+	});
+});
+```
