@@ -29,6 +29,7 @@ This has only been developed and tested on a CentOS Apache setup with PHP 5.4.21
 
 JavaScript Example:
 ===================
+Using jQuery:
 ```JAVASCRIPT
 $(function(){
 	$("#js_verify").click(function(){
