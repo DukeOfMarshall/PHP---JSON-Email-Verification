@@ -27,7 +27,7 @@ This has only been developed and tested on a CentOS Apache setup with PHP 5.4.21
 </body>
 </html>
 
-JavaScript Exmaple:
+JavaScript Example:
 ===================
 ```JAVASCRIPT
 $(function(){
@@ -39,4 +39,23 @@ $(function(){
 		return false;
 	});
 });
+```
+
+PHP Example:
+============
+```PHP
+require_once("EmailVerify.class.php");
+$verify = new EmailVerify();
+
+if($verify->verify_formatting($_POST['email'])){
+	echo "Email is formated correctly<BR>\r\n";
+}else{
+	echo "Email is NOT formated correctly<BR>\r\n";
+}
+
+if($verify->verify_domain($_POST['email'])){
+	echo "Domain has been verified<BR>\r\n";
+}else{
+	echo "Domain has NOT been verified<BR>\r\n";
+}
 ```
