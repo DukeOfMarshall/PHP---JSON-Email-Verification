@@ -38,6 +38,13 @@ This has only been developed and tested on a CentOS Apache setup with PHP 5.4.21
 </body>
 </html>
 
+Options
+=======
+| Option | Type | Notes |
+|--|:--:|--|
+| address_to_verify | STRING | The email address that you are wanting to verify |
+| verbose | BOOL | Return more detailed error messages |
+
 JavaScript Example:
 ===================
 Using jQuery:
