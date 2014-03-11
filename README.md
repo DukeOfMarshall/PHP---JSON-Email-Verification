@@ -49,8 +49,8 @@ PHP Methods
 ===========
 | Method | Passed Options | Return | Purpose |
 | ------ | -------------- | ------ | ------- |
-| verify_domain | $address_to_verify | TRUE if MX record has been verified. FALSE otherwise | Verify that an MX record exists for the domain name in the email address passed to the method |
-| verify_formatting | $address_to_verify, $verbose | TRUE if email address is formatted as it should. If the address is not formatted correctly, then the address will return FALSE if $verbose is not set or a STRING message if $verbose IS set. | Verify that the email address passed to the method is formatted correctly |
+| verify_domain() | $address_to_verify | TRUE if MX record has been verified. FALSE otherwise | Verify that an MX record exists for the domain name in the email address passed to the method |
+| verify_formatting() | $address_to_verify, $verbose | TRUE if email address is formatted as it should. If the address is not formatted correctly, then the address will return FALSE if $verbose is not set or a STRING message if $verbose IS set. | Verify that the email address passed to the method is formatted correctly |
 
 JavaScript Example:
 ===================
