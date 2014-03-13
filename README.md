@@ -70,4 +70,6 @@ if($verify->verify_domain($_POST['email'])){
 }else{
 	echo "Domain has NOT been verified<BR>\r\n";
 }
+
+$plain_text = $verify->convert_html_to_plain_txt($html_email_content_to_convert);
 ```
