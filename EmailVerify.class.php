@@ -544,5 +544,33 @@ class EmailVerify {
 			}
 		}
 	}
+
+	# Take the code from an HTML email and convert it to plain text
+	# This is commonly used when sending HTML emails as a backup for email clients who can only view, or who choose to only view, 
+	#	plain text emails
+	public function convert_html_to_plain_txt($content, $remove_links=FALSE){
+		# Replace HTML line breaks with text line breaks
+		$plain_text = str_ireplace(array("<br>","<br />"), "\n\r", $content);
+		
+		# Remove the content between the tags that wouldn't normally get removed with the strip_tags function
+		$plain_text = preg_replace(array('@<head[^>]*?>.*?</head>@siu',
+							            '@<style[^>]*?>.*?</style>@siu',
+							            '@<script[^>]*?.*?</script>@siu',
+							            '@<noscript[^>]*?.*?</noscript>@siu',
+							        ), "", $plain_text); # Remove everything from between the tags that doesn't get removed with strip_tags function
+		
+		# If the user has chosen to preserve the addresses from links
+		if(!$remove_links){
+			$plain_text = strip_tags(preg_replace('/<a href="(.*)">/', ' $1 ', $plain_text));
+		}
+		
+		# Remove HTML spaces
+		$plain_text = str_replace("&nbsp;", "", $plain_text);
+		
+		# Replace multiple line breaks with a single line break
+		$plain_text = preg_replace("/(\s){3,}/","\r\n\r\n",trim($plain_text));
+		
+		return $plain_text;
+	}
 }
 ?>
