@@ -36,7 +36,7 @@ PHP Methods
 | ------ | -------------- | ------ | ------- |
 | verify_domain() | $address_to_verify | TRUE if MX record has been verified. FALSE otherwise | Verify that an MX record exists for the domain name in the email address passed to the method |
 | verify_formatting() | $address_to_verify, $verbose | TRUE if email address is formatted as it should. If the address is not formatted correctly, then the address will return FALSE if $verbose is not set or a STRING message if $verbose IS set. | Verify that the email address passed to the method is formatted correctly |
-| convert_html_to_plain_txt() | $content, $remove_links | The plain text of the HTML code that was submitted | To take the HTML code submitted and remove all the HTML code sections out of the block. If $remove_links is set to TRUE, then the address from /<a> links will be gone. FALSE is the default for $remove_links and will instead leave the address from /<a> links in the returned plain text string.
+| convert_html_to_plain_txt() | $content, $remove_links | The plain text of the HTML code that was submitted | To take the HTML code submitted and remove all the HTML code sections out of the block. If $remove_links is set to TRUE, then the address from < a > links will be gone. FALSE is the default for $remove_links and will instead leave the address from < a > links in the returned plain text string.
 
 JavaScript Example:
 ===================
